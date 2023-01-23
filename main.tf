@@ -31,6 +31,7 @@ module "tfe_oidc" {
 provider "google" {
   region      = "us-central1"
   zone        = "us-central1-c"
+  project     = var.project
   credentials = module.tfe_oidc.credentials
 }
 
