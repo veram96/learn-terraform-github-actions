@@ -25,8 +25,9 @@ terraform {
 }
 
 provider "google" {
-  region = "us-central1"
-  zone   = "us-central1-c"
+  region      = "us-central1"
+  zone        = "us-central1-c"
+  credentials = var.TFC_WORKLOAD_IDENTITY_AUDIENCE
 }
 
 # resource "random_pet" "sg" {}
