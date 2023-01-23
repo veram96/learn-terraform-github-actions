@@ -24,10 +24,14 @@ terraform {
   }
 }
 
+module "tfe_oidc" {
+  source = "./tfc-oidc"
+}
+
 provider "google" {
   region      = "us-central1"
   zone        = "us-central1-c"
-  credentials = var.TFC_WORKLOAD_IDENTITY_AUDIENCE
+  credentials = module.tfe_oidc.credentials
 }
 
 # resource "random_pet" "sg" {}
